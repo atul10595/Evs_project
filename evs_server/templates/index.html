@@ -1,0 +1,50 @@
+<!--{% load static %}!-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>EVS Project</title>
+    <style>
+		table, th, td {
+		    border: 2px solid black;
+		    border-collapse: collapse;
+		}
+		th, td {
+		    padding: 5px;
+		    text-align: left;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>EVS PROJECT</h1>
+	<!--{% for che in check_list %}
+		<p>{{che.num}}</p>
+	{% endfor %}!-->
+	<div>
+		{% if location_list %}
+            <table style="width:30%">
+            	<tr>
+				    <th>Bus No.</th>
+				    <th>Latitude</th>
+				    <th>Longitude</th>
+				</tr>
+                {% for loc in location_list %}
+	                <tr>
+	                	<td style="width:20px">{{loc.bus_no}}</td>
+	    				<td style="width:100px">{{loc.latitude}}</td> 
+	    				<td style="width:100px">{{loc.longitude}}</td>
+	                </tr>
+                {% endfor %}
+            </table>
+        {% else %}
+            <p>No list to display.</p>
+        {% endif %}
+	</div>
+	
+</body>
+
+</html>
