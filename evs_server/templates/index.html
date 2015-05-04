@@ -24,7 +24,27 @@
 	<!--{% for che in check_list %}
 		<p>{{che.num}}</p>
 	{% endfor %}!-->
+	<br>
+	{% if businstance_list %}
+    		<table style="width:30%">
+                <tr>
+    			    <th>Bus No</th>
+    			    <th>Latitude</th>
+    			    <th>Longitude</th>
+    			</tr>
+    			{% for bus in businstance_list %}
+    				<tr>
+    					{% for tupple_bus in bus %}
+    						<td style="width:100px">{{tupple_bus}}</td>
+    					{% endfor %}
+    				</tr> 
+                {% endfor %}
+    		</table>
+        {% else %}
+            <p>No list to display.</p>
+        {% endif %}
 	<div>
+	<br>
 		{% if location_list %}
             <table style="width:30%">
             	<tr>

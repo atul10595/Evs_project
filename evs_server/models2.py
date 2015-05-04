@@ -11,29 +11,6 @@ from __future__ import unicode_literals
 
 from django.db import models
 
-class BusInstanceTable(models.Model):
-    bus_no = models.IntegerField(db_column='BUS_NO', primary_key=True) # Field name made lowercase.
-    latitude = models.FloatField(db_column='LATITUDE') # Field name made lowercase.
-    longitude = models.FloatField(db_column='LONGITUDE') # Field name made lowercase.
-    class Meta:
-        managed = False
-        db_table = 'BUS_INSTANCE_TABLE'
-
-class StopRouteTable(models.Model):
-    bus_stand = models.CharField(db_column='BUS_STAND', max_length=20) # Field name made lowercase.
-    bus_no = models.CharField(db_column='BUS_NO', max_length=20) # Field name made lowercase.
-    class Meta:
-        managed = False
-        db_table = 'STOP_ROUTE_TABLE'
-
-class StopTable(models.Model):
-    bus_stand = models.CharField(db_column='BUS_STAND', primary_key=True, max_length=20) # Field name made lowercase.
-    latitude = models.FloatField(db_column='LATITUDE', blank=True, null=True) # Field name made lowercase.
-    longitude = models.FloatField(db_column='LONGITUDE', blank=True, null=True) # Field name made lowercase.
-    class Meta:
-        managed = False
-        db_table = 'STOP_TABLE'
-
 class AuthGroup(models.Model):
     id = models.IntegerField(primary_key=True)
     name = models.CharField(unique=True, max_length=80)
@@ -142,4 +119,6 @@ class EvsServerLocation(models.Model):
     class Meta:
         managed = False
         db_table = 'evs_server_location'
+    def __str__(self):              # __unicode__ on Python 2
+        return self.bus_no
 
