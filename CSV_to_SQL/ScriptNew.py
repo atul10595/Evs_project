@@ -4,7 +4,7 @@ import MySQLdb
 MAXCOL = 2   #IMPORTANT
 
 # Open database connection
-db = MySQLdb.connect("localhost","root","shivomthukral","CSV_SQL")
+db = MySQLdb.connect("localhost","","","CSV_SQL")
 
 # prepare a cursor object using cursor() method
 cursor = db.cursor()
